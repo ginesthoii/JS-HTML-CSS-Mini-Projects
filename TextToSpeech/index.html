@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text to Speech</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Overlay to blur background -->
+  <div class="overlay"></div>
+
+  <!-- Main card -->
+  <div class="card">
+    <h1>Text to Speech</h1>
+
+    <label for="textInput">Enter Text</label>
+    <textarea id="textInput" placeholder="Type your text here..."></textarea>
+
+    <label for="voiceSelect">Voice</label>
+    <select id="voiceSelect"></select>
+
+    <label for="rateSelect">Speed</label>
+    <select id="rateSelect">
+      <option value="0.75">0.75x</option>
+      <option value="1" selected>1x</option>
+      <option value="1.25">1.25x</option>
+      <option value="1.5">1.5x</option>
+    </select>
+
+    <div class="sliders">
+      <div>
+        <label for="pitchRange">Pitch</label>
+        <input id="pitchRange" type="range" min="0.5" max="2" step="0.1" value="1">
+      </div>
+      <div>
+        <label for="volumeRange">Volume</label>
+        <input id="volumeRange" type="range" min="0" max="1" step="0.1" value="1">
+      </div>
+    </div>
+
+    <label for="fileTypeSelect">Download as</label>
+    <select id="fileTypeSelect">
+      <option value="wav">WAV</option>
+      <option value="txt">TXT</option>
+    </select>
+
+    <!-- Buttons -->
+    <div class="button-row">
+      <button id="speakBtn">Speak</button>
+      <button id="pauseBtn">Pause</button>
+      <button id="stopBtn">Stop</button>
+      <button id="previewBtn">Preview</button>
+      <button id="downloadBtn">Download</button>
+    </div>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
