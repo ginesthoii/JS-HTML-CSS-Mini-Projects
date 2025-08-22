@@ -14,6 +14,9 @@ Each project lives in its own folder with its own `index.html`, `style.css`, and
 | Basic Calculator | [Basic-Calculator](https://github.com/ginesthoii/JS-HTML-CSS-Mini-Projects/tree/main/Basic-Calculator) | HTML, CSS, JS | Simple four-function calculator with history and modern UI. |
 | Hex Color Generator | [Hex-Color-Generator](https://github.com/ginesthoii/JS-HTML-CSS-Mini-Projects/tree/main/Hex%20Color%20Generator) | HTML, CSS, JS | Pick a color, see its hex instantly, and preview it as background. |
 | Image Color Hex Extractor | [Image Color Hex Extractor (Upload:Drag Image → Hex Codes)](https://github.com/ginesthoii/JS-HTML-CSS-Mini-Projects/tree/main/Image%20Color%20Hex%20Extractor%20(Upload%3ADrag%20Image%20%E2%86%92%20Hex%20Codes)) | HTML, CSS, JS (Canvas, k-means) | Upload an image, extract dominant hex colors, hover to highlight swatches, and export palettes. |
+| Browser Piano (Keys & Code) |  [PlayablePiano](https://github.com/ginesthoii/JS-HTML-CSS-Mini-Projects/tree/main/PlayablePiano)  | HTML, CSS, JS (Web Audio API) | Real-piano layout synth with record/download, history, metronome + count-in, and Audio→Keys pitch detection. |
+| Typing Speed Test Game | [Typing Speed Test Game](https://github.com/ginesthoii/JS-HTML-CSS-Mini-Projects/tree/main/Typing%20Speed%20Test%20Game) | HTML, CSS, JS | Typing game that measures speed (WPM, CPM), mistakes, accuracy, and includes timer, progress bar, and dark mode. |
+
 
 <br>
 
@@ -160,11 +163,6 @@ An interactive palette extraction tool for any uploaded image.
 3. Upload an image and hover over it to explore colors.  
 4. Download the palette PNG for later use.  
 
-### Screenshots
-![Overview](https://github.com/ginesthoii/JS-HTML-CSS-Mini-Projects/blob/main/Image%20Color%20Hex%20Extractor%20(Upload%3ADrag%20Image%20%E2%86%92%20Hex%20Codes)/overview.png)
-
-![Palette Download](https://github.com/ginesthoii/JS-HTML-CSS-Mini-Projects/blob/main/Image%20Color%20Hex%20Extractor%20(Upload%3ADrag%20Image%20%E2%86%92%20Hex%20Codes)/palette%20download.png)
-
 ### Tech Used
 - HTML5 + Canvas for pixel sampling and rendering  
 - CSS3 for layout and pulse hover animation  
@@ -174,3 +172,87 @@ An interactive palette extraction tool for any uploaded image.
 - Palette size defaults to 12 colors but can be adjusted in code.  
 - Works 100% client-side with no backend.  
 - Useful for quick palette generation, design inspiration, or web projects.
+
+### Screenshots
+
+<img src="https://github.com/ginesthoii/JS-HTML-CSS-Mini-Projects/blob/main/Image%20Color%20Hex%20Extractor%20(Upload%3ADrag%20Image%20%E2%86%92%20Hex%20Codes)/overview.png" width="400" alt="Overview"/>
+
+![Palette Download](https://github.com/ginesthoii/JS-HTML-CSS-Mini-Projects/blob/main/Image%20Color%20Hex%20Extractor%20(Upload%3ADrag%20Image%20%E2%86%92%20Hex%20Codes)/palette%20download.png)
+
+
+
+---
+
+<br>
+
+
+## [Browser Piano (Keys & Code)](./PlayablePiano)
+
+A sleek browser synth piano with a **real-piano key layout** (black keys grouped 2–3 between whites), recording with **download & history**, **metronome + count-in**, optional **localStorage** persistence, and an **Audio → Keys** tool that plays detected notes from an uploaded MP3/WAV. No sample files needed — it uses the Web Audio API.
+
+### Features
+- Realistic layout (black keys sit between whites)
+- Web Audio synth (sine / triangle / square / saw)
+- Click or use your keyboard to play
+- Octave shift, volume, label toggle, dark mode
+- **Record / Stop / Play / Clear**
+- **Recording history** (timestamps) with **download** (WebM/Opus)
+- **Save to this browser** toggle (persists events via `localStorage`)
+- **Metronome** with BPM and optional **count-in**
+- **Audio → Keys**: upload audio you own (MP3/WAV), detect pitch, and “play” nearest keys
+
+### How to Run
+1. Clone the repo (or just this folder).  
+2. Open `index.html` in any modern browser.  
+3. If you don’t hear sound, click the page once (browsers require a user gesture to start audio).
+
+### Tech Used
+- HTML5 for structure  
+- CSS3 for layout and responsive UI  
+- Vanilla JavaScript: Web Audio API (synth & metronome), MediaRecorder (download), `localStorage` (persistence), simple autocorrelation (pitch detection)
+
+### Notes
+- **Local save** stores *events only* (not audio blobs). Replays use the synth.  
+- Want full audio persistence across reloads? Use IndexedDB (easy future upgrade).  
+- Pitch detection is intentionally simple; best on monophonic audio.  
+- YouTube→MP3 is **not** included (copyright/TOS). If you already have a legal MP3/WAV, drop it in and analyze.  
+
+
+### Screenshots
+<img src="https://github.com/ginesthoii/JS-HTML-CSS-Mini-Projects/blob/main/PlayablePiano/playablepiano.png" width="400" alt="Playable Piano Overview"/>
+
+---
+
+<br>
+
+## [Typing Speed Test Game](./Typing%20Speed%20Test%20Game)
+
+A modern typing test game that measures speed and accuracy in real-time. It highlights correct/incorrect keystrokes, tracks mistakes, WPM (words per minute), CPM (characters per minute), accuracy, and remaining time — all inside a clean card UI with dark mode support.
+
+### Features
+- Random paragraph loads each test  
+- Real-time highlighting (green = correct, red = incorrect)  
+- 60-second countdown timer with **progress bar**  
+- Tracks **mistakes, WPM, CPM, and accuracy** live  
+- **Try Again** and **New Paragraph** buttons  
+- Responsive layout for desktop & mobile  
+- Optional **Dark Mode** toggle  
+
+### How to Run
+1. Clone the repo (or just this folder).  
+2. Open `index.html` in any modern browser.  
+3. Start typing — the timer begins automatically.  
+
+### Tech Used
+- HTML5 for structure  
+- CSS3 for card layout, highlighting, and dark mode  
+- Vanilla JavaScript for timer, input handling, live stats, and progress bar  
+
+### Notes
+- Paragraphs are pulled from a local array in `script.js`.  
+- The hidden input auto-focuses so you can type immediately.  
+- All logic runs entirely in the browser — no backend required.  
+---
+
+<br>
+
