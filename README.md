@@ -11,7 +11,7 @@ Each project lives in its own folder with its own `index.html`, `style.css`, and
 |---------|--------|------|-------------|
 | Text to Speech | [TextToSpeech](./TextToSpeech) | HTML, CSS, JS (Web Speech API) | Convert text into spoken words with voice, pitch, speed controls. |
 | Pomodoro Timer | [Pomodoro-Timer](./Pomodoro-Timer) | HTML, CSS, JS (Web Audio API, SVG) | 25-minute timer with circular progress ring, notes, and CSV export. |
-| Basic Calculator | [Calculator](./Basic-Calculator) | HTML, CSS, JS | Simple four-function calculator with history and modern UI. |
+| Basic Calculator | [Basic-Calculator](./Basic-Calculator) | HTML, CSS, JS | Simple four-function calculator with history and modern UI. |
 
 ---
 
@@ -84,7 +84,7 @@ It uses an SVG-based circular progress ring to visualize the countdown and inclu
 
 <br>
 
-## [Basic Calculator](./Basic Calculator)
+## [Basic Calculator](./Basic-Calculator)
 
 A modern, minimal calculator app built with HTML, CSS, and JavaScript.  
 Supports basic arithmetic and keeps a history of calculations.
