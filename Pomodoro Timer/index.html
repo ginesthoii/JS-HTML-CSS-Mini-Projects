@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pomodoro Timer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="panel timer-panel">
+      <h1 class="title">Pomodoro Timer</h1>
+
+      <div class="ring-wrap">
+        <svg class="ring" viewBox="0 0 220 220" aria-hidden="true">
+          <circle class="ring-track" cx="110" cy="110" r="100"></circle>
+          <circle class="ring-progress" cx="110" cy="110" r="100" id="ringProgress"></circle>
+        </svg>
+        <p class="timer" id="timer">25:00</p>
+      </div>
+
+      <div class="button-row">
+        <button id="start" aria-label="Start timer">Start</button>
+        <button id="stop" aria-label="Stop timer">Stop</button>
+        <button id="reset" aria-label="Reset timer">Reset</button>
+      </div>
+
+      <label class="mute">
+        <input type="checkbox" id="muteToggle" />
+        Mute chime
+      </label>
+    </section>
+
+    <aside class="panel history-panel">
+      <div class="history-header">
+        <h2>Session History</h2>
+        <div class="history-actions">
+          <button id="exportCsv" class="linklike" aria-label="Export history to CSV">Export CSV</button>
+          <button id="clearHistory" class="linklike danger" aria-label="Clear history">Clear</button>
+        </div>
+      </div>
+      <ul id="historyList" class="history-list" aria-live="polite"></ul>
+    </aside>
+  </main>
+
+  <script src="index.js"></script>
+</body>
+</html>
