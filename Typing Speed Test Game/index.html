@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Typing Speed Test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <main class="wrap">
+    <header class="topbar">
+      <h1>Typing Speed Test</h1>
+      <label class="toggle">
+        <input id="theme" type="checkbox" />
+        <span>Dark</span>
+      </label>
+    </header>
+
+    <section class="card">
+      <div class="row stats">
+        <div class="stat">
+          <span class="label">Time</span>
+          <span id="time" class="value">60s</span>
+        </div>
+        <div class="stat">
+          <span class="label">WPM</span>
+          <span id="wpm" class="value">0</span>
+        </div>
+        <div class="stat">
+          <span class="label">CPM</span>
+          <span id="cpm" class="value">0</span>
+        </div>
+        <div class="stat">
+          <span class="label">Mistakes</span>
+          <span id="mistakes" class="value">0</span>
+        </div>
+        <div class="stat">
+          <span class="label">Accuracy</span>
+          <span id="acc" class="value">100%</span>
+        </div>
+      </div>
+
+      <div class="progress">
+        <div id="bar" class="bar"></div>
+      </div>
+
+      <div class="text-area" id="textArea" aria-label="Typing text" tabindex="0">
+        <!-- paragraph & spans injected by JS -->
+      </div>
+
+      <div class="controls">
+        <input id="input" class="hidden-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" />
+        <button id="restart" class="btn btn-accent">↻ Try Again</button>
+        <button id="newPara" class="btn">New Paragraph</button>
+      </div>
+
+      <p class="hint">Tip: just start typing. Press <kbd>Tab</kbd> or click to focus if needed.</p>
+    </section>
+  </main>
+</body>
+</html>
