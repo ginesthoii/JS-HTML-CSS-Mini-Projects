@@ -10,7 +10,7 @@ Each project lives in its own folder with its own `index.html`, `style.css`, and
 | Project | Folder | Tech | Description |
 |---------|--------|------|-------------|
 | Text to Speech | [TextToSpeech](./TextToSpeech) | HTML, CSS, JS (Web Speech API) | Convert text into spoken words with voice, pitch, speed controls. |
-| Pomodoro Ring | [pomodoro-ring](./pomodoro-ring) | HTML, CSS, JS (Web Audio API, SVG) | 25-minute timer with circular progress ring, notes, and CSV export. |
+| Pomodoro Timer | [Pomodoro-Timer](./Pomodoro-Timer) | HTML, CSS, JS (Web Audio API, SVG) | 25-minute timer with circular progress ring, notes, and CSV export. |
 
 
 
@@ -48,7 +48,7 @@ Note: Works best in Chrome or Edge (voice support varies by browser).
 
 <br>
 
-## [Pomodoro Ring](./pomodoro-ring)
+## [Pomodoro Timer](./Pomodoro-Timer)
 
 A clean Pomodoro timer app built with HTML, CSS, and JavaScript.  
 It uses an SVG-based circular progress ring to visualize the countdown and includes session history with notes and CSV export.
