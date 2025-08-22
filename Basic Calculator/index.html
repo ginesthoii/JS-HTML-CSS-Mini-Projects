@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <div class="calculator">
+      <!-- Display -->
+      <input type="text" id="result" readonly />
+
+      <!-- Buttons (DOM order kept the same so nth-child CSS works) -->
+      <div class="buttons">
+        <!-- Row 1 -->
+        <button class="clear">C</button>
+        <button class="operator">/</button>
+        <button class="operator">*</button>
+        <button class="operator">-</button>
+
+        <!-- Row 2 -->
+        <button class="number">7</button>
+        <button class="number">8</button>
+        <button class="number">9</button>
+        <button class="operator">+</button>
+
+        <!-- Row 3 -->
+        <button class="number">4</button>
+        <button class="number">5</button>
+        <button class="number">6</button>
+        <button class="equals">=</button>
+
+        <!-- Row 4 -->
+        <button class="number">1</button>
+        <button class="number">2</button>
+        <button class="number">3</button>
+
+        <!-- Row 5 -->
+        <button class="number">0</button>
+        <button class="decimal">.</button>
+      </div>
+    </div>
+
+    <!-- History -->
+    <aside class="history">
+      <div class="history-header">
+        <h2>History</h2>
+        <button id="clearHistory" class="linklike">Clear</button>
+      </div>
+      <ul id="historyList" class="history-list" aria-live="polite"></ul>
+      <p class="history-hint">Tip: click an entry to reuse it.</p>
+    </aside>
+  </main>
+
+  <script src="index.js"></script>
+</body>
+</html>
