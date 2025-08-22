@@ -1,7 +1,7 @@
 
-# JS-Mini-Projects
+# JS-HTML-CSS-Mini-Projects
 
-A growing collection of small, self-contained JavaScript projects.  
+A growing collection of small, self-contained JavaScript, HTML, CSS projects.  
 Each project lives in its own folder with its own `index.html`, `style.css`, and `index.js`, so you can run them directly in your browser.
 
 
