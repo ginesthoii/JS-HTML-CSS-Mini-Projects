@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Keys & Code — Browser Piano</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <main class="app">
+    <header class="toolbar">
+      <h1 class="brand">Keys & Code</h1>
+
+      <div class="controls">
+        <div class="control">
+          <label for="wave">Wave</label>
+          <select id="wave">
+            <option value="sine">Sine</option>
+            <option value="triangle">Triangle</option>
+            <option value="square">Square</option>
+            <option value="sawtooth">Saw</option>
+          </select>
+        </div>
+
+        <div class="control">
+          <label for="octave">Octave</label>
+          <div class="row">
+            <button id="octave-down" class="btn" aria-label="Octave down">–</button>
+            <output id="octave" class="badge">4</output>
+            <button id="octave-up" class="btn" aria-label="Octave up">+</button>
+          </div>
+        </div>
+
+        <div class="control">
+          <label for="volume">Volume</label>
+          <input id="volume" type="range" min="0" max="1" step="0.01" value="0.6" />
+        </div>
+
+        <div class="control">
+          <label class="toggle">
+            <input id="labels" type="checkbox" checked />
+            <span>Show labels</span>
+          </label>
+        </div>
+
+        <div class="control">
+          <label class="toggle">
+            <input id="theme" type="checkbox" />
+            <span>Dark mode</span>
+          </label>
+        </div>
+      </div>
+    </header>
+
+    <section class="keyboard-wrap">
+      <ul id="keyboard" class="keyboard" aria-label="Virtual piano keyboard"></ul>
+    </section>
+
+    <!-- Recording + metronome -->
+    <section class="panel">
+      <h2 class="panel-title">Recording</h2>
+      <div class="row wrap">
+        <div class="control">
+          <label class="toggle">
+            <input id="persist" type="checkbox" />
+            <span>Save takes to this browser</span>
+          </label>
+          <div class="hint">Stores events in localStorage (not the audio file). </div>
+        </div>
+
+        <div class="control">
+          <label for="bpm">Metronome BPM</label>
+          <input id="bpm" type="number" min="30" max="240" value="100" />
+        </div>
+
+        <div class="control">
+          <label for="countin">Count-in (bars)</label>
+          <select id="countin">
+            <option value="0">0</option>
+            <option value="1" selected>1</option>
+            <option value="2">2</option>
+          </select>
+        </div>
+
+        <div class="control">
+          <button id="metro" class="btn">Start Metronome</button>
+        </div>
+
+        <div class="control recorders">
+          <button id="rec" class="btn btn-accent" aria-pressed="false">● Record</button>
+          <button id="play" class="btn" disabled>▶ Play (current)</button>
+          <button id="clear" class="btn" disabled>⌫ Clear (current)</button>
+          <span id="rec-status" class="muted"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Audio -> Keys (upload your own MP3/WAV/etc) -->
+    <section class="panel">
+      <h2 class="panel-title">Audio → Keys</h2>
+      <div class="row wrap">
+        <div class="control">
+          <input id="audio-file" type="file" accept="audio/*" />
+          <div class="hint">Upload audio you own (MP3/WAV). We’ll detect pitch and play keys.</div>
+        </div>
+        <div class="control">
+          <label for="hop">Analysis Hop (ms)</label>
+          <input id="hop" type="number" min="5" max="200" value="40" />
+        </div>
+        <div class="control">
+          <label for="sens">Sensitivity</label>
+          <input id="sens" type="range" min="0" max="1" step="0.01" value="0.2" />
+        </div>
+        <div class="control">
+          <button id="analyze" class="btn">Analyze & Play</button>
+        </div>
+        <span id="an-status" class="muted"></span>
+      </div>
+    </section>
+
+    <!-- Takes/history -->
+    <section class="panel">
+      <h2 class="panel-title">Recordings</h2>
+      <ul id="takes" class="takes"></ul>
+    </section>
+
+    <footer class="help">
+      <p><strong>Tip:</strong> Click keys or use your keyboard. Try A W S E D F T G Y H U J K O L ;</p>
+    </footer>
+  </main>
+</body>
+</html>

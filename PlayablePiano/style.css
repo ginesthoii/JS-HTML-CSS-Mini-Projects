@@ -1,0 +1,176 @@
+:root {
+  --bg: #f4f6fb;
+  --panel: #ffffff;
+  --surface: #ffffff;
+  --text: #0e1220;
+  --muted: #5d6b85;
+  --accent: #2b6fff;
+  --accent-2: #7a2bff;
+  --key-white: #ffffff;
+  --key-white-edge: #d6dce9;
+  --key-black: #242a3a;
+  --key-black-edge: #0f1320;
+  --shadow: rgba(0,0,0,0.15);
+}
+
+html.dark {
+  --bg: #0f1115;
+  --panel: #151923;
+  --surface: #1b2130;
+  --text: #e9edf1;
+  --muted: #9aa6bf;
+  --accent: #6aa2ff;
+  --accent-2: #b56aff;
+  --key-white: #f7f9fc;
+  --key-white-edge: #d8e0ef;
+  --key-black: #1a1f2b;
+  --key-black-edge: #0b0f17;
+  --shadow: rgba(0,0,0,0.4);
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app { max-width: 1100px; margin: 0 auto; padding: 28px 20px 60px; }
+.brand { margin: 0; font-size: 1.25rem; }
+
+.toolbar {
+  background: var(--panel);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 18px var(--shadow);
+}
+
+.controls { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+.control label { font-size: 0.8rem; color: var(--muted); }
+.row { display: flex; gap: 10px; align-items: center; }
+.wrap { flex-wrap: wrap; }
+
+input[type="range"] { width: 160px; accent-color: var(--accent); }
+select, input[type="number"] { accent-color: var(--accent); padding: 4px 6px; }
+
+.btn {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--key-white-edge);
+  background: var(--surface);
+  cursor: pointer;
+}
+.btn-accent { background: var(--accent); color: white; border-color: var(--accent-2); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.badge { padding: 4px 8px; border-radius: 6px; background: var(--accent); color: white; font-weight: 600; }
+.muted { color: var(--muted); font-size: .85rem; margin-left: 6px; }
+.hint { color: var(--muted); font-size: .82rem; }
+
+.keyboard-wrap {
+  margin-top: 22px;
+  background: var(--panel);
+  border-radius: 18px;
+  padding: 22px 18px;
+  box-shadow: 0 10px 30px var(--shadow);
+}
+
+/* Panels */
+.panel {
+  margin-top: 22px;
+  background: var(--panel);
+  border-radius: 16px;
+  padding: 14px 16px 12px;
+  box-shadow: 0 6px 18px var(--shadow);
+}
+.panel-title { font-size: 1rem; margin: 0 0 10px; }
+
+/* === Real piano layout === */
+.keyboard {
+  display: flex;
+  gap: 3px;
+  list-style: none;
+  margin: 0;
+  padding: 0 12px;
+  height: 240px;
+  position: relative;
+}
+
+.key.white {
+  position: relative;
+  flex: 1;
+  background: var(--key-white);
+  border: 1px solid var(--key-white-edge);
+  border-radius: 0 0 6px 6px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.key.black {
+  position: absolute;
+  top: 0;
+  right: -28%;
+  width: 60%;
+  height: 62%;
+  background: var(--key-black);
+  border: 1px solid var(--key-black-edge);
+  border-radius: 0 0 6px 6px;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  box-shadow: 0 10px 18px rgba(0,0,0,0.35);
+}
+
+.label {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+  background: rgba(0,0,0,0.06);
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+.key.black .label { margin-bottom: 4px; }
+
+.key.pressed { filter: brightness(0.85); }
+
+/* Takes/history */
+.takes {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+}
+.take {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: var(--surface);
+  border: 1px solid var(--key-white-edge);
+  border-radius: 10px;
+  padding: 8px 10px;
+}
+.take .meta { display: flex; flex-direction: column; gap: 2px; }
+.take .meta .name { font-weight: 600; }
+.take .meta .sub { color: var(--muted); font-size: 0.85rem; }
+.take .actions { display: inline-flex; gap: 8px; }
+.take .actions .btn { padding: 6px 10px; }
+
+.help { margin-top: 16px; font-size: 0.9rem; color: var(--muted); }
+
+/* Responsive */
+@media (max-width: 560px) {
+  .controls { justify-content: center; }
+  .toolbar { justify-content: center; }
+  input[type="range"] { width: 120px; }
+}
