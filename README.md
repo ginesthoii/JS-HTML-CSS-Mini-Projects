@@ -11,8 +11,11 @@ Each project lives in its own folder with its own `index.html`, `style.css`, and
 |---------|--------|------|-------------|
 | Text to Speech | [TextToSpeech](./TextToSpeech) | HTML, CSS, JS (Web Speech API) | Convert text into spoken words with voice, pitch, speed controls. |
 | Pomodoro Timer | [Pomodoro-Timer](./Pomodoro-Timer) | HTML, CSS, JS (Web Audio API, SVG) | 25-minute timer with circular progress ring, notes, and CSV export. |
+| Basic Calculator | [Calculator](./Calculator) | HTML, CSS, JS | Simple four-function calculator with history and modern UI. |
 
+---
 
+<br>
 
 ## [Text to Speech](./TextToSpeech)
 
@@ -77,23 +80,33 @@ It uses an SVG-based circular progress ring to visualize the countdown and inclu
 - CSV export lets you save your progress for tracking.  
 - No frameworks, no backend — just run it in your browser.
 
-## [Calculator](./Calculator)
-A clean, minimal calculator with basic arithmetic support.  
-- Responsive layout.  
-- Keyboard support.  
-- Styled with modern CSS.  
-
 ---
 
 <br>
 
+## [Basic Calculator](./Basic Calculator)
 
-## [Todo App](./TodoApp)
-A lightweight task manager.  
-- Add, edit, delete tasks.  
-- Local storage persistence.  
-- Simple UI designed for productivity.  
+A modern, minimal calculator app built with HTML, CSS, and JavaScript.  
+Supports basic arithmetic and keeps a history of calculations.
 
+### Features
+- Clean, responsive layout styled with modern CSS  
+- Basic arithmetic: add, subtract, multiply, divide  
+- Calculator history with clickable entries  
+- Clear history option stored in browser `localStorage`  
+- Smooth hover/press animations for buttons  
 
-<br>
+### How to Run
+1. Clone the repo (or just this folder).  
+2. Open `index.html` in any modern browser.  
+3. Start calculating — results will be logged in history.
 
+### Tech Used
+- HTML5 for structure  
+- CSS3 for styling, grid-based layout, and button animations  
+- Vanilla JavaScript for calculator logic, history handling, and localStorage persistence  
+
+### Notes
+- Only safe button input is allowed (no free typing).  
+- History entries can be clicked to reuse past expressions.  
+- Runs entirely in the browser — no frameworks or backend required.
