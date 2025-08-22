@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image Color Hover Analyzer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 30px;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    .drop-zone {
+      border: 2px dashed #999;
+      border-radius: 10px;
+      width: 400px;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      background: white;
+      margin-bottom: 20px;
+      cursor: pointer;
+      text-align: center;
+    }
+    #canvas {
+      max-width: 400px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    .palette {
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    .swatch {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .swatch.highlight {
+      animation: pulse 1s infinite;
+      border-radius: 8px;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 0 5px rgba(0,0,0,0.4); }
+      50% { transform: scale(1.2); box-shadow: 0 0 15px rgba(0,0,0,0.8); }
+      100% { transform: scale(1); box-shadow: 0 0 5px rgba(0,0,0,0.4); }
+    }
+    .swatch-box {
+      width: 60px;
+      height: 60px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    .hex {
+      margin-top: 5px;
+      font-size: 12px;
+    }
+    button {
+      padding: 8px 14px;
+      font-size: 14px;
+      border: none;
+      background: #333;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #555;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <div class="drop-zone" id="dropZone">
+      Drag & drop an image here<br>or click to upload
+      <input type="file" id="fileInput" accept="image/*" hidden>
+    </div>
+    <canvas id="canvas"></canvas>
+  </div>
+
+  <div>
+    <div class="palette" id="palette"></div>
+    <button id="downloadBtn">Download Palette</button>
+  </div>
+
+  <canvas id="paletteCanvas" style="display:none;"></canvas>
+
+  <script>
+    const dropZone = document.getElementById("dropZone");
+    const fileInput = document.getElementById("fileInput");
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+    const paletteContainer = document.getElementById("palette");
+    let currentImage = null;
+    let paletteColors = [];
+
+    function rgbToHex(r,g,b){
+      return "#" + [r,g,b].map(x=>{
+        const hex = x.toString(16);
+        return hex.length===1 ? "0"+hex : hex;
+      }).join("");
+    }
+
+    // Extract dominant palette using k-means clustering
+    function extractPalette(image, clusters=12){
+      canvas.width = image.width;
+      canvas.height = image.height;
+      ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+      const data = ctx.getImageData(0,0,canvas.width,canvas.height).data;
+      let samples = [];
+      for(let i=0;i<data.length;i+=4*50){ // sample pixels for speed
+        const [r,g,b,a]=data.slice(i,i+4);
+        if(a>128) samples.push([r,g,b]);
+      }
+
+      function dist(a,b){ return Math.sqrt((a[0]-b[0])**2+(a[1]-b[1])**2+(a[2]-b[2])**2); }
+      let centers = samples.sort(()=>0.5-Math.random()).slice(0,clusters);
+      let changed=true; let groups=[];
+      for(let iter=0;iter<10 && changed;iter++){
+        groups=Array.from({length:clusters},()=>[]);
+        samples.forEach(p=>{
+          let dists=centers.map(c=>dist(p,c));
+          let idx=dists.indexOf(Math.min(...dists));
+          groups[idx].push(p);
+        });
+        changed=false;
+        centers=centers.map((c,i)=>{
+          if(!groups[i].length) return c;
+          let mean=[0,0,0];
+          groups[i].forEach(p=>{mean[0]+=p[0];mean[1]+=p[1];mean[2]+=p[2];});
+          mean=mean.map(v=>Math.round(v/groups[i].length));
+          if(dist(mean,c)>5) changed=true;
+          return mean;
+        });
+      }
+      return centers.map(c=>rgbToHex(...c));
+    }
+
+    function renderPalette(colors){
+      paletteContainer.innerHTML="";
+      colors.forEach(hex=>{
+        const swatch=document.createElement("div");
+        swatch.className="swatch";
+        swatch.dataset.hex = hex;
+        swatch.innerHTML=`<div class="swatch-box" style="background:${hex}"></div><div class="hex">${hex}</div>`;
+        paletteContainer.appendChild(swatch);
+      });
+    }
+
+    function handleFile(file){
+      const reader=new FileReader();
+      reader.onload=e=>{
+        const img=new Image();
+        img.onload=()=>{
+          currentImage = img;
+          const colors=extractPalette(img, 12); // always 12 colors
+          paletteColors = colors;
+          renderPalette(colors);
+        };
+        img.src=e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    // Highlight palette swatch when hovering image
+    canvas.addEventListener("mousemove", e=>{
+      if(!currentImage) return;
+      const rect = canvas.getBoundingClientRect();
+      const x = Math.floor((e.clientX - rect.left) * (canvas.width / rect.width));
+      const y = Math.floor((e.clientY - rect.top) * (canvas.height / rect.height));
+      const pixel = ctx.getImageData(x,y,1,1).data;
+
+      function hexToRgb(h){return h.match(/\w\w/g).map(x=>parseInt(x,16));}
+      function dist(a,b){return Math.sqrt((a[0]-b[0])**2+(a[1]-b[1])**2+(a[2]-b[2])**2);}
+      const rgb = [pixel[0],pixel[1],pixel[2]];
+      let closest = paletteColors[0];
+      let minD = Infinity;
+      paletteColors.forEach(c=>{
+        const d=dist(rgb,hexToRgb(c));
+        if(d<minD){minD=d;closest=c;}
+      });
+
+      document.querySelectorAll(".swatch").forEach(s=>s.classList.remove("highlight"));
+      const match = document.querySelector(`.swatch[data-hex="${closest}"]`);
+      if(match) match.classList.add("highlight");
+    });
+
+    canvas.addEventListener("mouseleave", ()=>{
+      document.querySelectorAll(".swatch").forEach(s=>s.classList.remove("highlight"));
+    });
+
+    // Download palette as PNG
+    function downloadPalette(colors) {
+      const pCanvas = document.getElementById("paletteCanvas");
+      const pCtx = pCanvas.getContext("2d");
+      const swatchWidth = 150, swatchHeight = 80;
+      pCanvas.width = swatchWidth * colors.length;
+      pCanvas.height = swatchHeight;
+
+      colors.forEach((hex, i) => {
+        pCtx.fillStyle = hex;
+        pCtx.fillRect(i * swatchWidth, 0, swatchWidth, swatchHeight);
+        pCtx.fillStyle = "#fff";
+        pCtx.font = "16px Arial";
+        pCtx.textAlign = "center";
+        pCtx.fillText(hex, i * swatchWidth + swatchWidth/2, swatchHeight/2+5);
+      });
+
+      const link = document.createElement("a");
+      link.download = "palette.png";
+      link.href = pCanvas.toDataURL();
+      link.click();
+    }
+
+    document.getElementById("downloadBtn").addEventListener("click", () => {
+      if(paletteColors.length) downloadPalette(paletteColors);
+    });
+
+    dropZone.addEventListener("click",()=>fileInput.click());
+    fileInput.addEventListener("change",e=>handleFile(e.target.files[0]));
+    dropZone.addEventListener("dragover",e=>{e.preventDefault();dropZone.classList.add("dragover");});
+    dropZone.addEventListener("dragleave",()=>dropZone.classList.remove("dragover"));
+    dropZone.addEventListener("drop",e=>{
+      e.preventDefault();dropZone.classList.remove("dragover");
+      if(e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+    });
+  </script>
+</body>
+</html>
