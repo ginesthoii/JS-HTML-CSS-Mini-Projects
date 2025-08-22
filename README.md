@@ -4,14 +4,14 @@
 A growing collection of small, self-contained JavaScript projects.  
 Each project lives in its own folder with its own `index.html`, `style.css`, and `index.js`, so you can run them directly in your browser.
 
----
+
+
+<br>
 
 ## [Text to Speech](./TextToSpeech)
 
 A browser-based Text to Speech app built with HTML, CSS, and JavaScript.  
 Uses the built-in Web Speech API (SpeechSynthesis) to convert text into spoken words with customizable options.
-
----
 
 ### Features
 - Enter any text and have it read aloud  
@@ -21,7 +21,7 @@ Uses the built-in Web Speech API (SpeechSynthesis) to convert text into spoken w
 - Pause, Stop, and Speak controls  
 - Clean glassmorphism UI with typewriter-style title animation  
 
----
+
 
 ### How to Run
 1. Clone the repo (or just this folder).  
@@ -30,10 +30,23 @@ Uses the built-in Web Speech API (SpeechSynthesis) to convert text into spoken w
 
 Note: Works best in Chrome or Edge (voice support varies by browser).  
 
+
+
+### Tech Used
+- HTML5 for structure  
+- CSS3 (glassmorphism, typewriter animation, custom sliders)  
+- Vanilla JavaScript for Web Speech API  
+
+
+
+### Notes
+- Voices available depend on your system and browser.  
+- No backend required — everything runs in the browser.  
+- Useful as a mini JavaScript project or learning resource for browser APIs.
+  
 ---
 
-### Project Structure
----
+<br>
 
 ## [Calculator](./Calculator)
 A clean, minimal calculator with basic arithmetic support.  
@@ -43,6 +56,9 @@ A clean, minimal calculator with basic arithmetic support.
 
 ---
 
+<br>
+
+
 ## [Todo App](./TodoApp)
 A lightweight task manager.  
 - Add, edit, delete tasks.  
@@ -50,10 +66,5 @@ A lightweight task manager.
 - Simple UI designed for productivity.  
 
 
+<br>
 
----
-
-## How to Run
-1. Clone the repo:
-   ```bash
-   git clone https://github.com/ginesthoii/JS-Mini-Projects.git
