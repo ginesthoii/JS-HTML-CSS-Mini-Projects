@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dog Clicker Trainer</title>
+<style>
+  :root {
+    --bg:#111; --card:#1b1b1b; --text:#e9e9e9; --accent:#26a69a; --muted:#9aa0a6;
+  }
+  html,body{height:100%}
+  body{margin:0;background:radial-gradient(1200px 800px at 70% -10%, #222 0%, #111 60%), var(--bg); color:var(--text); font:16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, sans-serif; display:grid; place-items:center}
+  .wrap{width:min(720px,92vw); padding:32px; background:rgba(27,27,27,.9); border:1px solid #2a2a2a; border-radius:20px; box-shadow:0 10px 40px rgba(0,0,0,.4)}
+  h1{margin:0 0 6px;font-size:1.6rem}
+  p.sub{margin:.25rem 0 1rem;color:var(--muted)}
+  .clicker{
+    margin:18px 0 10px; display:grid; place-items:center;
+  }
+  button.big{
+    width:220px; height:220px; border-radius:999px; border:none; cursor:pointer;
+    background:conic-gradient(from 180deg, #2a2a2a, #333, #2a2a2a);
+    color:var(--text); font-size:1.4rem; font-weight:700; letter-spacing:.3px;
+    box-shadow:0 14px 30px rgba(0,0,0,.5), inset 0 0 0 2px #3a3a3a;
+    transition:transform .05s ease, filter .1s ease;
+  }
+  button.big:active{ transform:scale(.98); filter:brightness(1.08); }
+  .stats{display:flex; gap:18px; flex-wrap:wrap; margin:14px 0 6px}
+  .stat{flex:1 1 140px; background:#151515; border:1px solid #2a2a2a; border-radius:14px; padding:14px}
+  .stat h3{margin:0; font-size:.85rem; color:var(--muted); font-weight:600; letter-spacing:.3px}
+  .stat .num{font-size:1.6rem; margin-top:6px; font-weight:700}
+  .row{display:flex; gap:10px; align-items:center; margin-top:10px; flex-wrap:wrap}
+  .row > *{flex:1}
+  .reset{background:transparent; border:1px solid #444; color:#ddd; padding:10px 14px; border-radius:12px; cursor:pointer}
+  .save{background:var(--accent); border:0; color:#002b27; padding:10px 14px; border-radius:12px; cursor:pointer; font-weight:700}
+  .foot{margin-top:10px; color:var(--muted); font-size:.9rem}
+</style>
+</head>
+<body>
+  <main class="wrap" role="main">
+    <h1>Dog Clicker Trainer</h1>
+    <p class="sub">Click to reinforce timing. Spacebar also works. Keep reps short and upbeat.</p>
+
+    <section class="clicker" aria-live="polite">
+      <button class="big" id="clickBtn" aria-label="Clicker (spacebar also works)">CLICK</button>
+      <audio id="snd" preload="auto">
+        <!-- Short “click” synthesized beep -->
+        <source src="data:audio/wav;base64,UklGRl4AAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABYBWFlaAAABAAACaAAA" type="audio/wav">
+      </audio>
+    </section>
+
+    <section class="stats" aria-describedby="summary">
+      <div class="stat"><h3>Total Clicks</h3><div class="num" id="total">0</div></div>
+      <div class="stat"><h3>Clicks / Minute</h3><div class="num" id="cpm">0</div></div>
+      <div class="stat"><h3>Session Time</h3><div class="num" id="time">0:00</div></div>
+    </section>
+
+    <div class="row">
+      <button class="reset" id="reset">Reset Session</button>
+      <button class="save" id="bookmark">Bookmark Timing Tip</button>
+    </div>
+
+    <p class="foot" id="summary">Tip: mark the exact moment your dog does the behavior—then treat. Short sessions beat marathons.</p>
+  </main>
+
+<script>
+(() => {
+  const btn = document.getElementById('clickBtn');
+  const snd = document.getElementById('snd');
+  const elTotal = document.getElementById('total');
+  const elCPM = document.getElementById('cpm');
+  const elTime = document.getElementById('time');
+  const resetBtn = document.getElementById('reset');
+  const markBtn = document.getElementById('bookmark');
+
+  let total = 0, start = null, timer = null;
+
+  function fmtTime(ms){
+    const s = Math.floor(ms/1000);
+    const m = Math.floor(s/60);
+    const sec = String(s%60).padStart(2,'0');
+    return `${m}:${sec}`;
+  }
+
+  function update(){
+    const elapsed = (Date.now() - start);
+    elTime.textContent = fmtTime(elapsed);
+    const minutes = Math.max(elapsed / 60000, 0.001);
+    elCPM.textContent = Math.round(total / minutes);
+  }
+
+  function click(){
+    if(!start){
+      start = Date.now();
+      timer = setInterval(update, 200);
+    }
+    total++;
+    elTotal.textContent = total;
+    try { snd.currentTime = 0; snd.play(); } catch(_) {}
+    update();
+  }
+
+  btn.addEventListener('click', click);
+  window.addEventListener('keydown', (e)=>{ if(e.code === 'Space'){ e.preventDefault(); click(); }});
+
+  resetBtn.addEventListener('click', ()=>{
+    total = 0; elTotal.textContent = '0';
+    start = null; elCPM.textContent='0'; elTime.textContent='0:00';
+    if(timer){ clearInterval(timer); timer=null; }
+  });
+
+  markBtn.addEventListener('click', ()=>{
+    alert("Bookmark: Click the instant the behavior happens. Treat follows the click.");
+  });
+})();
+</script>
+</body>
+</html>
