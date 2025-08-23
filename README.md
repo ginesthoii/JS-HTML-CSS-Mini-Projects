@@ -16,6 +16,8 @@ Each project lives in its own folder with its own `index.html`, `style.css`, and
 | Image Color Hex Extractor | [Image Color Hex Extractor (Upload:Drag Image → Hex Codes)](https://github.com/ginesthoii/JS-HTML-CSS-Mini-Projects/tree/main/Image%20Color%20Hex%20Extractor%20(Upload%3ADrag%20Image%20%E2%86%92%20Hex%20Codes)) | HTML, CSS, JS (Canvas, k-means) | Upload an image, extract dominant hex colors, hover to highlight swatches, and export palettes. |
 | Browser Piano (Keys & Code) |  [PlayablePiano](https://github.com/ginesthoii/JS-HTML-CSS-Mini-Projects/tree/main/PlayablePiano)  | HTML, CSS, JS (Web Audio API) | Real-piano layout synth with record/download, history, metronome + count-in, and Audio→Keys pitch detection. |
 | Typing Speed Test Game | [Typing Speed Test Game](https://github.com/ginesthoii/JS-HTML-CSS-Mini-Projects/tree/main/Typing%20Speed%20Test%20Game) | HTML, CSS, JS | Typing game that measures speed (WPM, CPM), mistakes, accuracy, and includes timer, progress bar, and dark mode. |
+| dog age calculator | [dog-age-calculator](https://github.com/ginesthoii/JS-HTML-CSS-Mini-Projects/tree/main/dog-age-calculator) | HTML, CSS, JS | Estimate your dog’s age in human years (adjusted by size category). |
+| Dog Clicker Trainer | [Dog-Clicker-Trainer](https://github.com/ginesthoii/JS-HTML-CSS-Mini-Projects/tree/main/Dog-Clicker-Trainer) | HTML, CSS, JS (Audio) | Training clicker with sound, total count, clicks per minute, and session stats. |
 
 
 <br>
@@ -256,3 +258,59 @@ A modern typing test game that measures speed and accuracy in real-time. It high
 
 <br>
 
+## [Dog Age Calculator](./Dog-Age-Calculator)
+
+A quick dog age → human years calculator with size-adjusted estimates.  
+Different multipliers are used for small, medium, large, and giant breeds.
+
+### Features
+- Enter dog’s age in years (with decimals for months)  
+- Select size category (small, medium, large, giant)  
+- Converts to approximate human age  
+- Simple responsive card layout  
+
+### How to Run
+1. Clone the repo (or just this folder).  
+2. Open `index.html` in your browser.  
+3. Enter age + size, then hit Calculate.  
+
+### Tech Used
+- HTML5 form inputs  
+- CSS3 card-based styling  
+- Vanilla JavaScript conversion logic  
+
+### Notes
+- Not veterinary-accurate, just a general guide.  
+- All client-side, no backend required.  
+
+---
+
+<br>
+
+## [Dog Clicker Trainer](./Dog-Clicker-Trainer)
+
+A browser-based dog training clicker tool. Plays a sharp “click” sound on button press (or spacebar) and tracks session stats.
+
+### Features
+- Large, tappable clicker button  
+- Click with mouse or press Spacebar  
+- Tracks **total clicks**, **clicks per minute**, and **session time**  
+- Reset session option  
+- “Bookmark tip” button for quick training reminders  
+
+### How to Run
+1. Clone the repo (or just this folder).  
+2. Open `index.html` in your browser.  
+3. Start clicking — use with treats for reinforcement training.  
+
+### Tech Used
+- HTML5 structure  
+- CSS3 neumorphic-style button and layout  
+- Vanilla JavaScript for sound, timers, and session stats  
+
+### Notes
+- Designed for short, upbeat training sessions.  
+- Works offline, no frameworks needed.  
+
+---
+<br>
