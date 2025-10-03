@@ -18,6 +18,7 @@ Each project lives in its own folder with its own `index.html`, `style.css`, and
 | Typing Speed Test Game | [Typing Speed Test Game](https://github.com/ginesthoii/JS-HTML-CSS-Mini-Projects/tree/main/Typing%20Speed%20Test%20Game) | HTML, CSS, JS | Typing game that measures speed (WPM, CPM), mistakes, accuracy, and includes timer, progress bar, and dark mode. |
 | dog age calculator | [dog-age-calculator](https://github.com/ginesthoii/JS-HTML-CSS-Mini-Projects/tree/main/dog-age-calculator) | HTML, CSS, JS | Estimate your dog’s age in human years (adjusted by size category). |
 | Dog Clicker Trainer | [Dog-Clicker-Trainer](https://github.com/ginesthoii/JS-HTML-CSS-Mini-Projects/tree/main/Dog-Clicker-Trainer) | HTML, CSS, JS (Audio) | Training clicker with sound, total count, clicks per minute, and session stats. |
+| Basic Post-It Notes | [Basic-Post-It-Notes](https://github.com/ginesthoii/JS-HTML-CSS-Mini-Projects/tree/main/basic-post-it-notes) | HTML, CSS, JS | An interactive sticky notes app built with HTML, CSS, and JavaScript — create, edit, and delete notes directly in the browser. |
 
 
 <br>
