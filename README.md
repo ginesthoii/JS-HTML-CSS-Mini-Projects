@@ -255,7 +255,10 @@ A sleek browser synth piano with a **real-piano key layout** (black keys grouped
 
 
 ### Screenshots
-<img src="https://github.com/ginesthoii/JS-HTML-CSS-Mini-Projects/blob/main/PlayablePiano/playablepiano.png" width="400" alt="Playable Piano Overview"/>
+
+<p align="center">
+  <img src="https://github.com/ginesthoii/JS-HTML-CSS-Mini-Projects/blob/main/PlayablePiano/playablepiano.png" alt="Image" width="600" height="600" style="border-radius:1px;"/>
+</p>
 
 ---
 
