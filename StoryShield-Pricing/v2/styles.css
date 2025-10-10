@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap");
+
+/* ===== Base ===== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root{
+  --bg:#232427;
+  --card:#2a2b2f;
+  --ink:#ffffff;
+  --muted:#a9b3c1;
+  --shadow:rgba(0,0,0,.5);
+
+  /* tier accents */
+  --accent-basic:#2196f3;     /* blue */
+  --accent-pro:#8b5cf6;       /* violet */
+  --accent-author:#06b6d4;    /* cyan */
+  --accent-prem:#ffb800;      /* gold */
+
+  --success:#5ee178;
+  --danger:#ff557a;
+}
+body.light{
+  --bg:#ebf5fc;
+  --card:#ffffff;
+  --ink:#213243;
+  --muted:#5d768a;
+  --shadow:rgba(0,0,0,.15);
+}
+html,body{height:100%}
+body{
+  font-family:"Poppins",sans-serif;
+  color:var(--ink);
+  background: radial-gradient(1200px 800px at 80% -10%, #383a42 0%, var(--bg) 60%);
+  display:flex; flex-direction:column; gap:32px;
+  align-items:center; justify-content:flex-start;
+  padding:24px;
+}
+
+/* ===== A11y ===== */
+.sr-only{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* ===== Toggle ===== */
+.toggle{
+  position:fixed; top:18px; right:18px;
+  width:48px; height:48px; border-radius:10px; border:none;
+  background:#fff; color:#111; display:grid; place-items:center; cursor:pointer;
+  box-shadow:0 6px 18px var(--shadow);
+}
+.toggle::before{
+  font-family:"Font Awesome 5 Free"; font-weight:900; content:"\f185"; font-size:20px;
+}
+body.light .toggle{background:#111827;color:#fff}
+body.light .toggle::before{content:"\f186"}
+
+/* ===== Cards grid ===== */
+.container{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(18px, 3vw, 28px);
+  width:min(1200px,95vw);
+  align-items:stretch;
+}
+.card{
+  position:relative; border-radius:16px; min-height:520px;
+  background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.06), 0 16px 32px var(--shadow);
+  overflow:hidden; transition: transform .35s ease, box-shadow .35s ease;
+}
+.card:hover{ transform: translateY(-8px); box-shadow: 0 26px 60px var(--shadow); }
+.box{ position:relative; width:100%; height:100%; background:var(--card); padding:26px 22px 22px; display:flex; align-items:stretch; justify-content:center; }
+.content{ width:100%; display:flex; flex-direction:column; align-items:center; text-align:center; gap:14px; }
+.badge{
+  position:absolute; top:12px; left:12px; background:#10b981; color:#052e26;
+  font-weight:700; font-size:12px; padding:6px 10px; border-radius:999px; letter-spacing:.4px;
+}
+
+/* icon */
+.icon{ width:80px; height:80px; display:grid; place-items:center; border-radius:50%; margin:8px 0 4px; box-shadow:0 12px 28px var(--shadow); }
+.icon .fa{ font-size:30px; color:#fff; }
+
+/* headings */
+h3{ font-size:1.6rem; font-weight:700; letter-spacing:.4px; }
+.subtitle{ font-size:.95rem; color:var(--muted); margin-top:-6px; }
+.price{ font-size:2.6rem; font-weight:800; line-height:1.1; }
+.price sup{ font-size:.6em; font-weight:600; position:relative; top:-.6em; }
+.price .per{ font-size:.45em; font-weight:600; color:var(--muted); margin-left:.15em; }
+
+/* features */
+.features{ width:100%; margin-top:6px; text-align:left; }
+.features li{
+  list-style:none; display:flex; align-items:center; gap:10px;
+  padding:8px 0; border-bottom:1px dashed rgba(255,255,255,.06);
+}
+.features li:last-child{ border-bottom:none; }
+.features i.fa-check{ color:var(--success); }
+.features i.fa-times{ color:var(--danger); }
+.muted{ color:var(--muted); }
+
+/* buttons */
+.cta{
+  display:inline-block; margin-top:auto; padding:10px 18px; border-radius:999px;
+  color:#111; background:#fff; text-decoration:none; font-weight:700; letter-spacing:.3px;
+  box-shadow:0 10px 22px var(--shadow);
+  transition: transform .15s ease, box-shadow .2s ease, opacity .2s ease;
+}
+.cta:active{ transform: translateY(1px) scale(.99); }
+.fineprint{ margin-top:10px; font-size:12px; color:var(--muted); }
+
+/* tier accents */
+.card[data-tier="basic"] .icon, .card[data-tier="basic"] .cta{ background:var(--accent-basic); color:#061b2a; }
+.card[data-tier="pro"] .icon, .card[data-tier="pro"] .cta{ background:var(--accent-pro); color:#160937; }
+.card[data-tier="author"] .icon, .card[data-tier="author"] .cta{ background:var(--accent-author); color:#00262c; }
+.card[data-tier="premium"] .icon, .card[data-tier="premium"] .cta{ background:var(--accent-prem); color:#3b2a00; }
+
+/* ===== Add-ons ===== */
+.addons{
+  width:min(1200px,95vw);
+  display:flex; flex-direction:column; gap:16px;
+}
+.addons h2{
+  font-size:1.3rem; font-weight:800; letter-spacing:.4px;
+}
+.addons-grid{
+  display:grid; gap:14px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.addon{
+  background:var(--card);
+  border-radius:14px;
+  padding:16px;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.06), 0 10px 22px var(--shadow);
+  display:grid; gap:8px;
+}
+.addon-title{ font-weight:700; display:flex; align-items:center; gap:8px; }
+.addon-title .fa{ width:22px; text-align:center; }
+.addon-desc{ color:var(--muted); font-size:.95rem; }
+.addon-price{ margin-top:4px; font-weight:800; }
+.addon-price span{
+  background:#fff; color:#111; padding:2px 8px; border-radius:999px; margin-right:6px;
+}
+
+/* responsive tweaks */
+@media (max-width:640px){
+  .card{ min-height:0; }
+}

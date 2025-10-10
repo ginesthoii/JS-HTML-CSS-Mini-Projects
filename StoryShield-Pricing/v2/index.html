@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="styles.css" />
+  <title>StoryShield — Pricing</title>
+</head>
+<body>
+  <!-- theme toggle -->
+  <button class="toggle" aria-label="Toggle light and dark theme"></button>
+
+  <main class="container" role="main" aria-labelledby="pricing-heading">
+    <h1 id="pricing-heading" class="sr-only">StoryShield Pricing</h1>
+
+    <!-- PageGuard (Free) -->
+    <section class="card" data-tier="basic" aria-label="PageGuard Free plan">
+      <div class="box">
+        <div class="content">
+          <div class="icon" aria-hidden="true"><i class="fa fa-book-reader"></i></div>
+          <h3>PageGuard</h3>
+          <p class="subtitle">Secure reading tracker</p>
+          <h4 class="price"><sup>$</sup>0<span class="per">/mo</span></h4>
+          <ul class="features">
+            <li><i class="fa fa-check"></i>AES-encrypted reading logs</li>
+            <li><i class="fa fa-check"></i>Up to 500 entries</li>
+            <li><i class="fa fa-check"></i>1 device sync</li>
+            <li class="muted"><i class="fa fa-times"></i>Analytics</li>
+            <li class="muted"><i class="fa fa-times"></i>Manuscript vault</li>
+          </ul>
+          <a href="#" class="cta" aria-label="Choose PageGuard Free">Get Started</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- StoryVault ($5) -->
+    <section class="card" data-tier="pro" aria-label="StoryVault plan">
+      <div class="box">
+        <div class="content">
+          <div class="badge" aria-hidden="true">Most Popular</div>
+          <div class="icon" aria-hidden="true"><i class="fa fa-shield-alt"></i></div>
+          <h3>StoryVault</h3>
+          <p class="subtitle">Privacy + insights</p>
+          <h4 class="price"><sup>$</sup>5<span class="per">/mo</span></h4>
+          <ul class="features">
+            <li><i class="fa fa-check"></i>Unlimited entries & device sync</li>
+            <li><i class="fa fa-check"></i>Reading insights & goals</li>
+            <li><i class="fa fa-check"></i>Custom themes & lock screen</li>
+            <li><i class="fa fa-check"></i>Encrypted CSV export</li>
+            <li class="muted"><i class="fa fa-times"></i>Author tools</li>
+          </ul>
+          <a href="#" class="cta" aria-label="Choose StoryVault">Upgrade</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- AuthorForge ($12) -->
+    <section class="card" data-tier="author" aria-label="AuthorForge plan">
+      <div class="box">
+        <div class="content">
+          <div class="icon" aria-hidden="true"><i class="fa fa-feather-alt"></i></div>
+          <h3>AuthorForge</h3>
+          <p class="subtitle">Create, collaborate, ship</p>
+          <h4 class="price"><sup>$</sup>12<span class="per">/mo</span></h4>
+          <ul class="features">
+            <li><i class="fa fa-check"></i>Encrypted manuscript vault (10 GB)</li>
+            <li><i class="fa fa-check"></i>Beta-reader rooms (AES)</li>
+            <li><i class="fa fa-check"></i>Version history & diff view</li>
+            <li><i class="fa fa-check"></i>Templates: ePub/PDF/Kindle</li>
+            <li><i class="fa fa-check"></i>Basic author analytics</li>
+          </ul>
+          <a href="#" class="cta" aria-label="Choose AuthorForge">Start Creating</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- StorySentry ($25) -->
+    <section class="card" data-tier="premium" aria-label="StorySentry premium plan">
+      <div class="box">
+        <div class="content">
+          <div class="icon" aria-hidden="true"><i class="fa fa-crown"></i></div>
+          <h3>StorySentry</h3>
+          <p class="subtitle">Author-grade security</p>
+          <h4 class="price"><sup>$</sup>25<span class="per">/mo</span></h4>
+          <ul class="features">
+            <li><i class="fa fa-check"></i>DRM e-book export & TTS*</li>
+            <li><i class="fa fa-check"></i>Advanced royalties dashboard</li>
+            <li><i class="fa fa-check"></i>Priority support (24–48h)</li>
+            <li><i class="fa fa-check"></i>Custom watermarking</li>
+            <li><i class="fa fa-check"></i>API access (rate-limited)</li>
+          </ul>
+          <a href="#" class="cta" aria-label="Choose StorySentry">Go Pro</a>
+          <p class="fineprint">*TTS/DRM available in supported regions.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Add-ons row -->
+  <section class="addons" aria-labelledby="addons-heading">
+    <h2 id="addons-heading">Add-ons</h2>
+    <div class="addons-grid">
+      <div class="addon">
+        <div class="addon-title"><i class="fa fa-globe"></i> Custom Domain</div>
+        <div class="addon-desc">Your author page at <code>yourname.storyshield.io</code> or map your own.</div>
+        <div class="addon-price"><span>$3</span>/mo</div>
+      </div>
+      <div class="addon">
+        <div class="addon-title"><i class="fa fa-lock"></i> Vault Expansion</div>
+        <div class="addon-desc">+10 GB encrypted storage blocks, stack as needed.</div>
+        <div class="addon-price"><span>$2</span>/mo</div>
+      </div>
+      <div class="addon">
+        <div class="addon-title"><i class="fa fa-robot"></i> AI Assistant</div>
+        <div class="addon-desc">Draft help, edits, recs. Scoped to your private data.</div>
+        <div class="addon-price"><span>$5</span>/mo</div>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
