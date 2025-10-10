@@ -57,7 +57,7 @@ Note: Works best in Chrome or Edge (voice support varies by browser).
 
 
   <p align="center">
-  <img src="" alt="Image" width="600" height="400" style="border-radius:1px;"/>
+  <img src="https://github.com/user-attachments/assets/4b057cd6-1da1-468f-a7f9-d61c38289c57" alt="Image" width="600" height="400" style="border-radius:1px;"/>
 </p>
 
 
@@ -97,7 +97,7 @@ It uses an SVG-based circular progress ring to visualize the countdown and inclu
 
 
 <p align="center">
-  <img src="" alt="Image" width="600" height="400" style="border-radius:1px;"/>
+  <img src="https://github.com/user-attachments/assets/a40a74d6-e4e6-42ac-958c-8e3d37f8cf32" alt="Image" width="600" height="400" style="border-radius:1px;"/>
 </p>
 
 
@@ -135,7 +135,7 @@ Supports basic arithmetic and keeps a history of calculations.
 
 
 <p align="center">
-  <img src="" alt="Image" width="600" height="400" style="border-radius:1px;"/>
+  <img src="https://github.com/user-attachments/assets/8354c419-9e04-4a59-b8cd-9a8f628e7183" alt="Image" width="600" height="400" style="border-radius:1px;"/>
 </p>
 
 
@@ -170,9 +170,12 @@ Great for design work and quick reference.
 
 
 <p align="center">
-  <img src="" alt="Image" width="600" height="400" style="border-radius:1px;"/>
+  <img src="https://github.com/user-attachments/assets/534887c0-66ad-4d19-8c1c-dfa6aa990570" alt="Image" width="400" height="600" style="border-radius:1px;"/>
 </p>
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/0b55a572-1d88-493e-95a4-90b2d7b59307" alt="Image" width="600" height="400" style="border-radius:1px;"/>
+</p>
 
 
 ---
@@ -289,10 +292,12 @@ A modern typing test game that measures speed and accuracy in real-time. It high
 
 
 <p align="center">
-  <img src="" alt="Image" width="600" height="400" style="border-radius:1px;"/>
+  <img src="https://github.com/user-attachments/assets/e49f40df-b53f-471c-b8f9-f9b2fdc92d69" alt="Image" width="600" height="400" style="border-radius:1px;"/>
 </p>
 
-
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/11dcb5c6-5806-494a-b4e2-7a229563fb0f" alt="Image" width="600" height="400" style="border-radius:1px;"/>
+</p>
 
 ---
 
@@ -324,7 +329,7 @@ Different multipliers are used for small, medium, large, and giant breeds.
 - All client-side, no backend required.  
 
 <p align="center">
-  <img src="" alt="Image" width="600" height="400" style="border-radius:1px;"/>
+  <img src="https://github.com/user-attachments/assets/4e92958d-d966-442f-9798-ef0af8da1ce6" alt="Image" width="600" height="400" style="border-radius:1px;"/>
 </p>
 
 
@@ -359,7 +364,7 @@ A browser-based dog training clicker tool. Plays a sharp “click” sound on bu
 
 
 <p align="center">
-  <img src="" alt="Image" width="600" height="400" style="border-radius:1px;"/>
+  <img src="https://github.com/user-attachments/assets/f1acf45b-cd14-4d3e-a86d-8a130d29e094" alt="Image" width="600" height="400" style="border-radius:1px;"/>
 </p>
 
 
