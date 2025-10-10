@@ -23,6 +23,8 @@ Each project lives in its own folder with its own `index.html`, `style.css`, and
 
 <br>
 
+
+
 ## [Text to Speech](./TextToSpeech)
 
 A browser-based Text to Speech app built with HTML, CSS, and JavaScript.  
@@ -52,7 +54,14 @@ Note: Works best in Chrome or Edge (voice support varies by browser).
 - Voices available depend on your system and browser.  
 - No backend required — everything runs in the browser.  
 - Useful as a mini JavaScript project or learning resource for browser APIs.
-  
+
+
+  <p align="center">
+  <img src="" alt="Image" width="600" height="400" style="border-radius:1px;"/>
+</p>
+
+
+
 ---
 
 <br>
@@ -86,6 +95,13 @@ It uses an SVG-based circular progress ring to visualize the countdown and inclu
 - CSV export lets you save your progress for tracking.  
 - No frameworks, no backend — just run it in your browser.
 
+
+<p align="center">
+  <img src="" alt="Image" width="600" height="400" style="border-radius:1px;"/>
+</p>
+
+
+
 ---
 
 <br>
@@ -117,6 +133,13 @@ Supports basic arithmetic and keeps a history of calculations.
 - History entries can be clicked to reuse past expressions.  
 - Runs entirely in the browser — no frameworks or backend required.
 
+
+<p align="center">
+  <img src="" alt="Image" width="600" height="400" style="border-radius:1px;"/>
+</p>
+
+
+
 ---
 
 <br>
@@ -144,6 +167,13 @@ Great for design work and quick reference.
 ### Notes
 - Uses `<input type="color">` for native color selection.  
 - No dependencies, no backend — everything runs in-browser.
+
+
+<p align="center">
+  <img src="" alt="Image" width="600" height="400" style="border-radius:1px;"/>
+</p>
+
+
 
 ---
 
@@ -254,7 +284,16 @@ A modern typing test game that measures speed and accuracy in real-time. It high
 ### Notes
 - Paragraphs are pulled from a local array in `script.js`.  
 - The hidden input auto-focuses so you can type immediately.  
-- All logic runs entirely in the browser — no backend required.  
+- All logic runs entirely in the browser — no backend required.
+
+
+
+<p align="center">
+  <img src="" alt="Image" width="600" height="400" style="border-radius:1px;"/>
+</p>
+
+
+
 ---
 
 <br>
@@ -283,6 +322,11 @@ Different multipliers are used for small, medium, large, and giant breeds.
 ### Notes
 - Not veterinary-accurate, just a general guide.  
 - All client-side, no backend required.  
+
+<p align="center">
+  <img src="" alt="Image" width="600" height="400" style="border-radius:1px;"/>
+</p>
+
 
 ---
 
@@ -313,5 +357,26 @@ A browser-based dog training clicker tool. Plays a sharp “click” sound on bu
 - Designed for short, upbeat training sessions.  
 - Works offline, no frameworks needed.  
 
+
+<p align="center">
+  <img src="" alt="Image" width="600" height="400" style="border-radius:1px;"/>
+</p>
+
+
 ---
 <br>
+
+## [Basic Post-It Notes](./basic-post-it-notes)
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/76c30570-3777-4616-b1bf-303ea6cb9f0b" alt="Image" width="600" height="400" style="border-radius:1px;"/>
+</p>
+
+
+---
+<br>
+
+
+
+
+
