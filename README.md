@@ -381,10 +381,33 @@ A browser-based dog training clicker tool. Plays a sharp “click” sound on bu
 </p>
 
 
+
 ---
+
 <br>
 
 
+## [Pricing](./basic-post-it-notes)
+
+<p align="center">
+  <img src="" alt="Image" width="600" height="400" style="border-radius:1px;"/>
+</p>
+
+<p align="center">
+  <img src="" alt="Image" width="600" height="400" style="border-radius:1px;"/>
+</p>
+
+<p align="center">
+  <img src="" alt="Image" width="600" height="400" style="border-radius:1px;"/>
+</p>
+
+<p align="center">
+  <img src="" alt="Image" width="600" height="400" style="border-radius:1px;"/>
+</p>
+
+<p align="center">
+  <img src="" alt="Image" width="600" height="400" style="border-radius:1px;"/>
+</p>
 
 
 
