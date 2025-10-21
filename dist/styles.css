@@ -1,0 +1,106 @@
+/* Base */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root{
+  --bg: #000;
+  --panel: #222;
+  --panel-2: #2d2d2d;
+  --text: #fff;
+  --muted: #b3b3b3;
+  --line: #222;
+  --red: #e50914;
+}
+html, body { background: var(--bg); color: var(--text); font: 500 16px/1.5 Arial, sans-serif; }
+
+/* simple hero */
+.hero {
+  position: relative;
+  min-height: 70vh;
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.5), rgba(0,0,0,.8)),
+    url('https://images.unsplash.com/photo-1523475496153-3d6ccf86b6f8?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat;
+  margin-bottom: 3rem;
+}
+.hero-overlay { position:absolute; inset:0; box-shadow: inset 0 -120px 160px rgba(0,0,0,.9); }
+.hero-inner { position: relative; z-index: 1; text-align: center; width: min(92%, 960px); }
+.logo { width: 120px; margin-bottom: 1.25rem; }
+.hero-inner h1 { font-size: clamp(1.8rem, 3.5vw, 3rem); margin-bottom: .5rem; }
+.hero-inner p { color: var(--muted); margin-bottom: 1rem; }
+.email-form { display:flex; gap:.5rem; justify-content:center; align-items:center; flex-wrap:wrap; }
+.email-form input{
+  width:min(520px, 68vw);
+  padding: .9rem 1rem;
+  background:#0f0f0f; border:1px solid #333; color:var(--text); border-radius:.4rem;
+}
+.btn{ border:0; cursor:pointer; padding:.9rem 1.15rem; border-radius:.4rem; font-weight:700; }
+.btn-red{ background:var(--red); color:#fff; }
+.btn-red:hover{ filter:brightness(1.1); }
+
+/* Layout container */
+.container{ width:min(92%, 1000px); margin-inline:auto; }
+
+/* FAQ */
+.faq-heading{ font-size: clamp(1.6rem, 2.8vw, 2rem); margin-bottom: 1.25rem; }
+.faq{ margin-bottom: 3rem; }
+.faq-list{ display:grid; gap:.75rem; }
+
+.faq-btn{
+  width:100%; display:flex; justify-content:space-between; align-items:center;
+  background:#2d2d2d; color:#fff; padding:1.25rem 1.5rem; font-size:1.25rem;
+  border:0; border-radius:6px; cursor:pointer; transition:background .25s ease;
+}
+.faq-btn:hover{ background:#3a3a3a; }
+.faq-btn i{ transition: transform .25s ease; }
+
+.faq-panel{
+  background:#2d2d2d; border-top:1px solid #3a3a3a; border-radius:0 0 6px 6px;
+  overflow:hidden; max-height:0; transition:max-height .3s ease;
+}
+.faq-panel p{ padding:1rem 1.5rem; font-size:1.1rem; line-height:1.6; }
+
+/* repeated email form at bottom */
+.email-form-bottom{ margin-top: 1.25rem; display:block; }
+.email-form-bottom .cta-copy{ color:var(--muted); margin-bottom:.75rem; }
+.email-form-bottom .row{ display:flex; gap:.5rem; flex-wrap:wrap; }
+.email-form-bottom input{ flex:1 1 340px; }
+
+/* Footer */
+.site-footer{ border-top:1px solid var(--line); padding: 2rem 0 1rem; }
+.site-footer .contact{ color:var(--muted); margin-bottom:1rem; }
+.footer-links{
+  list-style:none;
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(160px,1fr));
+  gap:.6rem 1.5rem;
+  margin-bottom:1.25rem;
+}
+.footer-links a{ color:var(--muted); text-decoration:none; font-size:.95rem; }
+.footer-links a:hover{ text-decoration:underline; }
+
+.language{
+  position:relative; display:inline-flex; align-items:center; gap:.5rem;
+  padding:.7rem 1rem; border:1px solid #333; border-radius:.25rem; color:#fff;
+  cursor:pointer; user-select:none;
+}
+.language:focus{ outline:2px solid #fff; outline-offset:3px; }
+.language .dropdown{ position:absolute; left:0; top:calc(100% + 6px); width:100%; z-index:5; }
+.language .dropdown ul{ background:#000; border:1px solid #333; padding:.25rem 0; border-radius:.25rem; }
+.language .dropdown ul[hidden]{ display:none; }
+.language .dropdown li{ list-style:none; }
+.language .dropdown button{
+  width:100%; text-align:left; padding:.6rem .8rem; background:transparent; border:0; color:#fff; cursor:pointer;
+}
+.language .dropdown button:hover{ background:#111; }
+.region{ color:var(--muted); margin: 1rem 0 .25rem; }
+
+.disclaimer{
+  color:#757575; width:min(92%, 1000px); margin: 0 auto 3rem; font-size:.85rem;
+}
+.disclaimer a{ color:#757575; }
+
+/* Responsive tweaks */
+@media (max-width: 600px){
+  .faq-btn{ font-size:1.05rem; padding:1rem 1rem; }
+  .faq-panel p{ font-size:1rem; padding:.9rem 1rem; }
+}
